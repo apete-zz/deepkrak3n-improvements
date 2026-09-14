@@ -1,0 +1,135 @@
+"""Globals CSS with neon and glassmorphism styles."""
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Neon Text Gradient */
+.neon-gradient {
+  background: linear-gradient(
+    90deg,
+    #00f0ff 0%,
+    #d946ef 25%,
+    #ec4899 50%,
+    #10b981 75%,
+    #0ea5e9 100%
+  );
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Glassmorphism effects */
+.backdrop-blur-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Neon glow animation */
+.neon-glow {
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  animation: neon-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 40px rgba(0, 240, 255, 0.5);
+  }
+}
+
+/* Scanning animation */
+.scan-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.5) 50%,
+    transparent 100%
+  );
+  animation: scan-across 2s linear infinite;
+}
+
+@keyframes scan-across {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff, #d946ef);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00f0ff, #ec4899);
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #00f0ff;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button,
+input,
+select,
+textarea {
+  @apply transition-all duration-300;
+}
+
+/* Glassmorphism containers */
+.glass-container {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-container:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive neon effects */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
